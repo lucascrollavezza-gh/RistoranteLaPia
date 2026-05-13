@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- GENERAZIONE ORARI PRENOTAZIONE ---
     const timeSelect = document.getElementById('time');
     if (timeSelect) {
+        timeSelect.innerHTML = ""; // Pulisce eventuali opzioni statiche
         for (let h = 19; h <= 22; h++) {
             for (let m = 0; m < 60; m += 15) {
                 const time = `${h}:${m === 0 ? '00' : m}`;
@@ -46,13 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const popup = document.getElementById('popup-overlay');
     const closePopup = document.getElementById('close-popup');
 
-    if (plusBtn && minusBtn) {
+    if (plusBtn && minusBtn && peopleInput) {
         plusBtn.addEventListener('click', () => {
             let val = parseInt(peopleInput.value);
             if (val < 20) {
                 peopleInput.value = val + 1;
             } else {
-                popup.style.display = 'flex';
+                if (popup) popup.style.display = 'flex';
             }
         });
 
@@ -61,9 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (val > 1) peopleInput.value = val - 1;
         });
 
-        closePopup.addEventListener('click', () => {
-            popup.style.display = 'none';
-        });
+        if (closePopup) {
+            closePopup.addEventListener('click', () => {
+                popup.style.display = 'none';
+            });
+        }
     }
 
     // --- ANIMAZIONI ALL'ENTRATA ---
@@ -81,14 +84,46 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // --- INVIO FORM (SIMULAZIONE) ---
+    // --- INVIO FORM REALE A FORMSPREE ---
     const form = document.getElementById('booking-form');
     if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Grazie! La tua richiesta di prenotazione è stata inviata. Ti contatteremo al più presto per confermare la disponibilità del tavolo.');
-            form.reset();
-            peopleInput.value = 2;
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Impedisce il ricaricamento della pagina
+            
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            
+            // Stato "Invio in corso"
+            submitBtn.textContent = "Invio in corso...";
+            submitBtn.disabled = true;
+
+            // Prepariamo i dati dal form (legge gli attributi 'name')
+            const formData = new FormData(form);
+
+            try {
+                // Sostituisci IL_TUO_ID_FORMSPREE con il tuo codice reale
+                const response = await fetch("https://formspree.io/f/xvzlywda", {
+                    method: "POST",
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    alert('Grazie! La tua richiesta di prenotazione è stata inviata. Ti contatteremo al più presto per confermare.');
+                    form.reset();
+                    if (peopleInput) peopleInput.value = 2; // Reset manuale del contatore
+                } else {
+                    alert('Si è verificato un problema tecnico. Per favore, prenota chiamando il 328 326 4227.');
+                }
+            } catch (error) {
+                alert('Errore di connessione. Controlla la tua rete e riprova.');
+            } finally {
+                // Ripristina il bottone
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }
         });
     }
 });
