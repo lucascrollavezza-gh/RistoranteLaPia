@@ -122,40 +122,44 @@
     </section>
 
     <!-- Prenotazione -->
-    <section id="prenota" class="section-padding">
-        <div class="container">
-            <div class="section-header">
-                <h2>Prenota un Tavolo</h2>
-                <p>Riserva la tua esperienza fronte mare</p>
-            </div>
-            
-            <form id="booking-form" class="booking-card" action="https://formspree.io/f/xvzlywda" method="POST">
-                <div class="form-group">
-                    <label>Nome e Cognome</label>
-                    <input type="text" id="full-name">
-                </div>
-                <div class="form-group">
-                    <label>Cellulare</label>
-                    <input type="tel" id="phone">
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Orario</label>
-                        <select id="time" required></select>
-                    </div>
-                    <div class="form-group">
-                        <label>Persone</label>
-                        <div class="counter">
-                            <button type="button" id="minus">-</button>
-                            <input type="number" id="people" value="2" min="1" max="21" readonly>
-                            <button type="button" id="plus">+</button>
-                        </div>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary btn-full">Invia Richiesta</button>
-            </form>
+   <section id="prenota" class="section-padding">
+    <div class="container">
+        <div class="section-header">
+            <h2>Prenota un Tavolo</h2>
+            <p>Riserva la tua esperienza fronte mare</p>
         </div>
-    </section>
+        
+        <!-- Nota: Non mettiamo action/method qui perché l'invio lo gestisce il JS -->
+        <form id="booking-form" class="booking-card">
+            <div class="form-group">
+                <label>Nome e Cognome</label>
+                <!-- L'ID serve al JS, il NAME serve a Formspree -->
+                <input type="text" name="Nome_Cliente" id="full-name" required placeholder="Inserisci il tuo nome">
+            </div>
+            <div class="form-group">
+                <label>Cellulare</label>
+                <input type="tel" name="Telefono_Cliente" id="phone" required placeholder="328 326 4227">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Orario</label>
+                    <!-- ID 'time' fondamentale per il popolamento automatico -->
+                    <select name="Orario_Prenotazione" id="time" required></select>
+                </div>
+                <div class="form-group">
+                    <label>Persone</label>
+                    <div class="counter">
+                        <button type="button" id="minus">-</button>
+                        <!-- ID 'people' fondamentale per il contatore JS -->
+                        <input type="number" name="Numero_Persone" id="people" value="2" min="1" max="21" readonly>
+                        <button type="button" id="plus">+</button>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" id="submit-btn" class="btn btn-primary btn-full">Invia Richiesta</button>
+        </form>
+    </div>
+</section>
 
     <!-- Recensioni -->
     <section id="recensioni" class="section-padding bg-light">
