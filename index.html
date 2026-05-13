@@ -3,41 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Pia Viareggio | Ristorante Vista Mare e Cucina di Pesce</title>
-    <meta name="description" content="Ristorante di pesce raffinato sul lungomare di Viareggio. Goditi un pranzo vista mare o una cena al tramonto con materia prima d'eccellenza.">
+    <title>La Pia Viareggio | Ristorante di Pesce sulla Spiaggia</title>
+    <meta name="description" content="Ristorante La Pia a Viareggio: cucina di pesce d'eccellenza e tavoli sulla spiaggia. Prenota il tuo tavolo per una cena indimenticabile al tramonto.">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <!-- Header -->
     <header class="main-header">
         <div class="container">
             <div class="logo">LA PIA</div>
             <nav class="nav-desktop">
-                <a href="#storia">Storia</a>
-                <a href="#menu">Il Menu</a>
+                <a href="#storia">L'Atmosfera</a>
+                <a href="#menu">Menu</a>
+                <a href="#prenota">Prenota</a>
                 <a href="#contatti">Contatti</a>
             </nav>
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-overlay"></div>
-        <img src="https://images.unsplash.com/photo-1515362778563-6a8d0e44bc0b?auto=format&fit=crop&q=80&w=1920" alt="Vista mare La Pia" class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1515362778563-6a8d0e44bc0b?auto=format&fit=crop&q=80&w=1920" alt="La Pia Viareggio Vista Mare" class="hero-bg">
         <div class="hero-content">
             <h1>Il mare nel piatto, <br><em>il tramonto negli occhi.</em></h1>
-            <p>L'autentica cucina di pesce a Viareggio.</p>
-            <a href="#contatti" class="btn btn-primary">Riserva un tavolo</a>
+            <p>Ristorante ricercato sulla spiaggia di Viareggio.</p>
+            <a href="#prenota" class="btn btn-primary">Prenota un tavolo</a>
         </div>
     </section>
 
+    <!-- Storia / Bio -->
     <section id="storia" class="section-padding container">
         <div class="bio-grid">
             <div class="bio-text">
-                <span class="subtitle">Dal 19XX</span>
-                <h2>Un'eredità di sale e passione</h2>
-                <p>La Pia è un angolo di Viareggio dove il tempo rallenta. La nostra filosofia mette al centro la <strong>materia prima locale</strong>: portiamo in tavola solo ciò che il mare della Versilia ci offre ogni mattina.</p>
-                <p>Un ambiente raffinato ma profondamente autentico, dove l'accoglienza incontra l'eleganza del design mediterraneo.</p>
+                <span class="subtitle">Coastal Chic</span>
+                <h2>Un ambiente fiabesco sulla sabbia</h2>
+                <p>A <strong>La Pia</strong>, l'arredamento sobrio incontra una vegetazione gradevolissima. Qui si pranza e si cena avvolti dai toni chiari e dalla brezza marina, in una location incantevole sul lungomare di Viareggio.</p>
+                <p>Dalla luce del mattino alle cene sotto le stelle: ogni momento è un omaggio alla Versilia più autentica e ricercata.</p>
             </div>
             <div class="bio-image">
                 <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80&w=800" alt="Atmosfera La Pia">
@@ -45,68 +49,143 @@
         </div>
     </section>
 
+    <!-- Menu Verticale -->
     <section id="menu" class="section-padding bg-light">
         <div class="container">
             <div class="section-header">
                 <h2>Le Nostre Proposte</h2>
-                <p>Ingredienti freschi, sapori mediterranei</p>
+                <p>Materia prima eccelsa, dal mare alla tavola</p>
             </div>
 
-            <div class="menu-grid">
+            <div class="menu-vertical">
                 <div class="menu-category">
-                    <h3>Antipasti</h3>
+                    <h3>Gli Antipasti</h3>
                     <div class="menu-item">
-                        <span class="item-name">Crudo di mare "La Pia"</span> <span class="item-price">€28</span>
-                        <p>Selezione del pescato, ostriche e scampi nostrali.</p>
+                        <div class="item-header">
+                            <span class="item-name">Gran Crudo di Mare</span>
+                            <span class="item-price">€28</span>
+                        </div>
+                        <p>Selezione imperdibile di crostacei, conchiglie e pescato del giorno.</p>
                     </div>
                     <div class="menu-item">
-                        <span class="item-name">Polpo croccante e ceci</span> <span class="item-price">€18</span>
+                        <div class="item-header">
+                            <span class="item-name">Insalata di polpo verace</span>
+                            <span class="item-price">€18</span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="menu-category">
-                    <h3>Primi Piatti</h3>
+                    <h3>I Secondi Piatti</h3>
                     <div class="menu-item">
-                        <span class="item-name">Spaghetto alle Arselle</span> <span class="item-price">€22</span>
-                        <p>Il grande classico della tradizione viareggina.</p>
+                        <div class="item-header">
+                            <span class="item-name">Misto Fritto "La Pia"</span>
+                            <span class="item-price">€24</span>
+                        </div>
+                        <p>Paranza dorata, croccante e leggera con verdure dell'orto.</p>
                     </div>
                     <div class="menu-item">
-                        <span class="item-name">Pacchero all'astice</span> <span class="item-price">€26</span>
+                        <div class="item-header">
+                            <span class="item-name">Tagliata di Tonno e Mango</span>
+                            <span class="item-price">€26</span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="menu-category">
-                    <h3>Secondi</h3>
+                    <h3>I Primi Piatti</h3>
                     <div class="menu-item">
-                        <span class="item-name">Frittura di paranza</span> <span class="item-price">€24</span>
-                        <p>Dorata, croccante e leggerissima.</p>
+                        <div class="item-header">
+                            <span class="item-name">Spaghetti alle Arselle</span>
+                            <span class="item-price">€22</span>
+                        </div>
+                        <p>Le celebri arselle viareggine, aglio, olio e peperoncino.</p>
                     </div>
                     <div class="menu-item">
-                        <span class="item-name">Pescato del giorno al sale</span> <span class="item-price">€26</span>
+                        <div class="item-header">
+                            <span class="item-name">Linguine all'Astice</span>
+                            <span class="item-price">€26</span>
+                        </div>
                     </div>
                 </div>
+
                 <div class="menu-category">
-                    <h3>Dolci e Vini</h3>
+                    <h3>I Dessert</h3>
                     <div class="menu-item">
-                        <span class="item-name">Tiramisù della casa</span> <span class="item-price">€9</span>
-                    </div>
-                    <div class="menu-item">
-                        <span class="item-name">Vermentino Locale (Calice)</span> <span class="item-price">€8</span>
+                        <div class="item-header">
+                            <span class="item-name">Tiramisù al Pistacchio</span>
+                            <span class="item-price">€9</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Prenotazione -->
+    <section id="prenota" class="section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Prenota un Tavolo</h2>
+                <p>Riserva la tua esperienza fronte mare</p>
+            </div>
+            
+            <form id="booking-form" class="booking-card">
+                <div class="form-group">
+                    <label>Nome e Cognome</label>
+                    <input type="text" id="full-name" required placeholder="Inserisci il tuo nome">
+                </div>
+                <div class="form-group">
+                    <label>Cellulare</label>
+                    <input type="tel" id="phone" required placeholder="328 326 4227">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Orario</label>
+                        <select id="time" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Persone</label>
+                        <div class="counter">
+                            <button type="button" id="minus">-</button>
+                            <input type="number" id="people" value="2" min="1" max="21" readonly>
+                            <button type="button" id="plus">+</button>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Invia Richiesta</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Recensioni -->
+    <section id="recensioni" class="section-padding bg-light">
+        <div class="container">
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p class="review-text">"Ambiente ricercato, fiabesco. Si pranza sulla spiaggia attorniati da una vegetazione gradevolissima. Arredamento sobrio ma molto stiloso."</p>
+                    <span class="review-author">— ISO La (Local Guide)</span>
+                </div>
+                <div class="review-card">
+                    <p class="review-text">"Posto incantevole, cibo molto buono e vista piacevole. La qualità del pescato è eccezionale. Consigliatissimo."</p>
+                    <span class="review-author">— Giulia B.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contatti -->
     <section id="contatti" class="section-padding container">
         <div class="contact-wrapper">
             <div class="contact-info">
                 <h2>Vieni a trovarci</h2>
-                <p>Viale Gherardesca, Viareggio (LU)</p>
+                <p>Via Giuseppe Barellai, 13<br>55049 Viareggio (LU)</p>
                 <div class="opening-hours">
-                    <p><strong>Pranzo:</strong> 12:30 — 15:00</p>
-                    <p><strong>Cena:</strong> 19:30 — 23:00</p>
-                    <small>Chiuso il Lunedì</small>
+                    <p><strong>Gio - Mar:</strong> 12:30–14:30 | 19:30–21:30</p>
+                    <p><strong>Domenica:</strong> 12:30–14:30</p>
+                    <small>Mercoledì: Chiuso</small>
                 </div>
-                <a href="tel:+390584XXXXXX" class="btn btn-outline" style="margin-top:20px">Chiama Ora</a>
+                <a href="tel:+393283264227" class="btn btn-outline" style="margin-top:20px">Chiama Ora</a>
             </div>
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2876.2271803814947!2d10.237415276650045!3d43.87184443826151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d5a1f2f413c151%3A0x1c0e7df5b59c6a3e!2sLa%20Pia!5e0!3m2!1sit!2sit!4v1778663684114!5m2!1sit!2sit" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
@@ -116,13 +195,24 @@
 
     <footer class="footer-minimal">
         <div class="container">
-            <p>&copy; 2026 La Pia Viareggio</p>
+            <p>&copy; 2026 Ristorante La Pia Viareggio — 328 326 4227</p>
         </div>
     </footer>
 
+    <!-- Popup Tavolate -->
+    <div id="popup-overlay" class="popup-overlay">
+        <div class="popup-content">
+            <h3>Grande Tavolata?</h3>
+            <p>Per prenotazioni superiori a 20 persone, vi preghiamo di chiamarci direttamente per organizzare al meglio il vostro evento.</p>
+            <a href="tel:+393283264227" class="btn btn-primary">Chiama 328 326 4227</a>
+            <button id="close-popup">Chiudi</button>
+        </div>
+    </div>
+
+    <!-- Mobile Bar -->
     <div class="mobile-actions">
-        <a href="tel:+390584XXXXXX" class="action-btn">📞 CHIAMA</a>
-        <a href="https://wa.me/39XXXX" class="action-btn primary">💬 WHATSAPP</a>
+        <a href="tel:+393283264227" class="action-btn">📞 CHIAMA</a>
+        <a href="https://wa.me/393283264227" class="action-btn primary">💬 WHATSAPP</a>
     </div>
 
     <script src="main.js"></script>
