@@ -180,7 +180,7 @@ input, select { width: 100%; padding: 12px; border: 1px solid #ddd; font-family:
 
 /* Applica queste regole solo su telefoni (schermi fino a 768px) */
 @media screen and (max-width: 768px) {
-    .bio-text { 
+    .bio-grid { 
         padding-left: 12px;
         padding-right: 12px;
     }
