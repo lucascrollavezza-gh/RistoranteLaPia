@@ -65,6 +65,33 @@ input, select { width: 100%; padding: 12px; border: 1px solid #ddd; font-family:
 .review-card { background: white; padding: 30px; border-radius: 2px; text-align: center; }
 .review-text { font-family: var(--font-serif); font-style: italic; margin-bottom: 15px; }
 .review-author { font-size: 0.7rem; letter-spacing: 1px; font-weight: 600; color: var(--color-agave); }
+.stars {
+    color: #FFD700; /* Colore Oro per le stelle */
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.more-reviews {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-link {
+    color: var(--color-blu);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    border-bottom: 1px solid var(--color-agave);
+    padding-bottom: 5px;
+}
+
+.btn-link:hover {
+    color: var(--color-agave);
+    border-bottom-color: var(--color-blu);
+}
 
 /* Contatti & Mappa */
 .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; background: var(--color-sabbia); overflow: hidden; border-radius: 4px; }
