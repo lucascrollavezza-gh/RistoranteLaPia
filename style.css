@@ -74,6 +74,23 @@ body {
 /* MOBILE & ADAPTATION */
 .mobile-actions { display: none; }
 
+/* --- Animazioni di entrata --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay opzionale per i figli delle grid per un effetto a cascata */
+.reveal-delayed {
+    transition-delay: 0.2s;
+}
+
 @media (max-width: 768px) {
     .nav-desktop { display: none; }
     .bio-grid { grid-template-columns: 1fr; text-align: center; }
