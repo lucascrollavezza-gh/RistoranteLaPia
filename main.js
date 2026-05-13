@@ -1,63 +1,94 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. GESTIONE HEADER AL SCROLL ---
+    // --- GESTIONE HEADER ---
     const header = document.querySelector('.main-header');
-    
-    const handleHeader = () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    };
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+    });
 
-    window.addEventListener('scroll', handleHeader);
-
-
-    // --- 2. SMOOTH SCROLL PER I LINK INTERNI ---
-    // Gestisce lo scorrimento dolce quando si clicca sul menu o sui bottoni
+    // --- SMOOTH SCROLL ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === "#") return; // Salta se è solo un cancelletto
-            
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                const headerHeight = document.querySelector('.main-header').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
                 window.scrollTo({
-                    top: targetPosition - headerHeight, // Sottrae l'altezza dell'header per non coprire il titolo
+                    top: target.offsetTop - 80,
                     behavior: 'smooth'
                 });
             }
         });
     });
 
+    // --- GENERAZIONE ORARI PRENOTAZIONE ---
+    const timeSelect = document.getElementById('time');
+    if (timeSelect) {
+        for (let h = 19; h <= 22; h++) {
+            for (let m = 0; m < 60; m += 15) {
+                const time = `${h}:${m === 0 ? '00' : m}`;
+                const option = document.createElement('option');
+                option.value = time;
+                option.textContent = time;
+                timeSelect.appendChild(option);
+            }
+        }
+        // Aggiunge le 23:00 come ultimo orario
+        const lastOption = document.createElement('option');
+        lastOption.value = "23:00";
+        lastOption.textContent = "23:00";
+        timeSelect.appendChild(lastOption);
+    }
 
-    // --- 3. ANIMAZIONI DI ENTRATA (INTERSECTION OBSERVER) ---
-    // Prepara le sezioni aggiungendo la classe reveal
-    const sectionsToReveal = document.querySelectorAll('section, .bio-image, .menu-category');
-    sectionsToReveal.forEach(el => el.classList.add('reveal'));
+    // --- CONTATORE PERSONE & POPUP ---
+    const plusBtn = document.getElementById('plus');
+    const minusBtn = document.getElementById('minus');
+    const peopleInput = document.getElementById('people');
+    const popup = document.getElementById('popup-overlay');
+    const closePopup = document.getElementById('close-popup');
 
-    const revealOnScroll = new IntersectionObserver((entries, observer) => {
+    if (plusBtn && minusBtn) {
+        plusBtn.addEventListener('click', () => {
+            let val = parseInt(peopleInput.value);
+            if (val < 20) {
+                peopleInput.value = val + 1;
+            } else {
+                popup.style.display = 'flex';
+            }
+        });
+
+        minusBtn.addEventListener('click', () => {
+            let val = parseInt(peopleInput.value);
+            if (val > 1) peopleInput.value = val - 1;
+        });
+
+        closePopup.addEventListener('click', () => {
+            popup.style.display = 'none';
+        });
+    }
+
+    // --- ANIMAZIONI ALL'ENTRATA ---
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-                // Una volta visibile, smettiamo di osservare l'elemento
-                observer.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.15, // L'animazione parte quando il 15% dell'elemento è visibile
-        rootMargin: "0px 0px -50px 0px" // Parte leggermente prima che entri del tutto nel viewport
+    }, observerOptions);
+
+    document.querySelectorAll('section, .bio-image, .review-card, .menu-category').forEach(el => {
+        el.classList.add('reveal');
+        observer.observe(el);
     });
 
-    sectionsToReveal.forEach(section => {
-        revealOnScroll.observe(section);
-    });
-
+    // --- INVIO FORM (SIMULAZIONE) ---
+    const form = document.getElementById('booking-form');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Grazie! La tua richiesta di prenotazione è stata inviata. Ti contatteremo al più presto per confermare la disponibilità del tavolo.');
+            form.reset();
+            peopleInput.value = 2;
+        });
+    }
 });
