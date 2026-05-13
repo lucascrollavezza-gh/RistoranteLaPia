@@ -166,14 +166,14 @@ input, select { width: 100%; padding: 12px; border: 1px solid #ddd; font-family:
 
 /* Nascondi i tasti su PC (schermi più grandi di 768px) */
 @media screen and (min-width: 769px) {
-    .mobile-actions {
+    .action-btn {
         display: none !important;
     }
 }
 
 /* Mostra i tasti su Telefono (schermi fino a 768px) */
 @media screen and (max-width: 768px) {
-    .mobile-actions {
+    .action-btn {
         display: block; /* o 'flex' a seconda del design originale */
     }
 }
