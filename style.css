@@ -164,4 +164,18 @@ input, select { width: 100%; padding: 12px; border: 1px solid #ddd; font-family:
     .section-padding { padding: 50px 0; }
 }
 
+/* Nascondi i tasti su PC (schermi più grandi di 768px) */
+@media screen and (min-width: 769px) {
+    .mobile-actions {
+        display: none !important;
+    }
+}
+
+/* Mostra i tasti su Telefono (schermi fino a 768px) */
+@media screen and (max-width: 768px) {
+    .mobile-actions {
+        display: block; /* o 'flex' a seconda del design originale */
+    }
+}
+
 .footer-minimal { background: var(--color-blu); color: white; padding: 30px 0; text-align: center; font-size: 0.7rem; }
